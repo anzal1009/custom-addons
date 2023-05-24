@@ -1,0 +1,20 @@
+{
+    'name': 'Sftp_connector',
+    'version': '1.0.0',
+    'sequence': '-103',
+    'category': 'Services',
+    'summary': """SFTP connection""",
+    'description': """SFTP to Odoo connector""",
+    'author': 'Ideenkreise Tech Pvt Ltd',
+    'website': "https://www.ideenkreisetech.com",
+    'company': 'Ideenkreise Tech Pvt Ltd',
+    'maintainer': 'Ideenkreise Tech Pvt Ltd',
+    'depends': ['base_accounting_kit'],
+    'data': [
+             'views/view.xml',
+    ],
+    'license': 'LGPL-3',
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}

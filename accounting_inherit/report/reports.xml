@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="custom_report_paperformat" model="report.paperformat">
+        <field name="name">Pdf Custom Paper Format</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <!--        <field name="page_height">320</field>-->
+        <!--        <field name="page_width">220</field>-->
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">40</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">40</field>
+        <field name="dpi">100</field>
+    </record>
+    <report
+            id="action_proposal_report"
+            string="Proposal Letter"
+            model="templates"
+            report_type="qweb-pdf"
+            name="accounting_inherit.proposal_report"
+            file="accounting_inherit.proposal_report"
+            paperformat="accounting_inherit.custom_report_paperformat"
+            menu="True"/>
+    <report
+            id="action_experience_report"
+            string="Experience Letter"
+            model="templates"
+            report_type="qweb-pdf"
+            name="accounting_inherit.experience_report"
+            file="accounting_inherit.experience_report"
+            paperformat="accounting_inherit.custom_report_paperformat"
+            menu="True"/>
+    <report
+            id="action_offer_report"
+            string="Offer Letter"
+            model="templates"
+            report_type="qweb-pdf"
+            name="accounting_inherit.offer_report"
+            file="accounting_inherit.offer_report"
+            paperformat="accounting_inherit.custom_report_paperformat"
+            menu="True"/>
+
+</odoo>

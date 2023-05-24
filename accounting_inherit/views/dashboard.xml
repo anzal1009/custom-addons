@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_dashboard_tree" model="ir.ui.view">
+            <field name="name">dashboard.tree</field>
+            <field name="model">dashboard</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    <record id="view_dashboard_form" model="ir.ui.view">
+        <field name="name">dashboard.form</field>
+        <field name="model">dashboard</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <sheet>
+                    <group col="2">
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_dashboard_kanban" model="ir.ui.view">
+        <field name="name">Dashboard</field>
+        <field name="model">dashboard</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_salesteam_kanban o_project_kanban " create="0">
+                <field name="name"/>
+<!--                <field name="color"/>-->
+                <templates>
+                    <t t-name="kanban-box" style="width:500px; height:500px;">
+                        <div>
+                            <div t-attf-class="oe_kanban_global_click">
+<!--                                <div t-attf-class="{{'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) }} oe_kanban_card oe_kanban_global_click oe_semantic_html_override">-->
+                                <div class="o_kanban_card_header_title">
+                                    <div class="o_primary" t-if="!selection_mode">
+                                        <div class="col-12">
+                                            <ul style="list-style-type:none; padding:0px 20px;">
+<!--                                                <field name="name"/>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container o_kanban_card_content" t-if="!selection_mode">
+                                <div class="row">
+                                    <div class="col-6 o_kanban_primary_left">
+<!--                                        <a class="oe_kanban_stock_picking_type_list" type="object">-->
+                                                <h3><field name="name"/></h3><br/>
+<!--                                        </a><br/>-->
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+<!--                <group>-->
+<!--                    <widget name="pie_chart" title="Journals" attrs="{'groupby': 'type'}"/>-->
+<!--                </group>-->
+            </kanban>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_view_dashboard">
+        <field name="name">Dashboard</field>
+        <field name="res_model">dashboard</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create Dashboard</p>
+        </field>
+    </record>
+
+</odoo>

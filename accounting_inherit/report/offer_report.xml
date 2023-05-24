@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<odoo>
+    <template id="offer_report">
+        <t t-call="web.html_container">
+            <body>
+                <style>
+                    td {
+                    padding: 5px;
+                    }
+                </style>
+                <template id="offer_report"
+                          inherit_id="web.external_layout_standard">
+                    <xpath expr="//div[@class='header']" position="replace">
+                        <t t-foreach="docs" t-as="o">
+                        </t>
+                    </xpath>
+                    <xpath expr="//div[@class='row zero_min_height']" position="replace">
+                        <div t-if="report_type == 'pdf'" class="text-muted" style="text-align: right;">
+                            Page:
+                            <span class="page"/>
+                            /
+                            <span class="topage"/>
+                        </div>
+                    </xpath>
+                    <xpath expr="//div[@name='name']" position="replace">
+                        <div class="header">
+                            <div class="col-xs-6">
+                                <img src='/accounting_inherit/static/image/header.png' style="width:100%;"/>
+                            </div>
+
+                        </div>
+                    </xpath>
+                    <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']/div[1]//ul[@class='list-inline mb4']"
+                           position="replace">
+                        <div class="footer">
+                            <img src='/accounting_inherit/static/image/footer.png' style="width:100%;"/>
+                        </div>
+                    </xpath>
+                    <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']/div[1]//div[@class='text-muted']"
+                           position="replace">
+                    </xpath>
+                </template>
+
+
+                <template id="offer_report">
+                    <t t-call="web.external_layout">
+                        <p>To,
+                            <span t-field="o.rec_name"/><br/>
+                            <span t-field="o.address"/>
+                        </p>
+                        <br/>
+                        <center>
+                            <h3>Subject: Appointment for Post of <span t-field="o.post"/></h3>
+                        </center>
+                        <br/>
+                        <div class="page" style="font-size: 15px !important;">
+                            <div class="line" style="text-align: justify;text-justify: inter-word;">
+                                <p>Dear Name,<br/>
+                                    We are pleased to offer you the position of Python Developer with Ideenkreise Tech Pvt. Ltd. on the
+                                    following terms and conditions:<br/>
+                                    <strong>1. Commencement of Employment</strong><br/>
+                                    Your employment will be effective, as of <span t-field="o.employ_date"/><br/>
+                                    <strong>2. Job Title</strong><br/>
+                                    Your job title will be Python Developer, and you will report to Mr.Sajith.k<br/>
+                                    <strong>3. Salary</strong><br/>
+                                    As <span t-field="o.post"/> your starting monthly remuneration will be Rs.<span t-field="o.salary"/><br/>
+
+
+
+                                    <span t-field="o.ending_date"/>
+                                    year from the date of release of the purchase order.
+                                </p>
+                                <br/>
+                                <strong>Term</strong>
+                                <br/>
+                                <p>"The Service Provider shall begin providing maintenance for the Software Owner for a
+                                    period of
+                                    <span t-field="o.starting_date"/>
+                                    to
+                                    <span t-field="o.ending_date"/>
+                                    from the date of release of the purchase order unless termination by either party is
+                                    requested The term of the
+                                    Agreement shall be from the date of release of the purchase order to one year after
+                                    that date." "After the completion of the running AMC period, any support services
+                                    provided by the Service Provider will be
+                                    charged at the rate of Rs 1000 per hour."
+                                    <br/>
+                                    “In the event if the original project cost gets modified due to extra requirements
+                                    during the AMC period .On the next
+                                    renewal AMC will be billed on the overall project cost.”
+                                </p>
+                                <br/>
+                                <strong>Granted Access Terms</strong>
+                                <br/>
+                                <p>The Software Owner shall provide the Service Provider with access to the necessary
+                                    resources as well as a
+                                    reasonable amount of time to correct such software errors. In the event that new
+                                    software errors are discovered,
+                                    the same consideration will be taken, and the Service Provider will be granted the
+                                    access needed to comply with
+                                    this Agreement. Additionally, the Service Provider shall have access to facilities,
+                                    computers, and software as
+                                    necessary in order to perform period software maintenance and backups.
+                                </p>
+                                <br/>
+                                <strong>Proprietary Rights</strong>
+                                <br/>
+                                <p>
+                                    The Service Provider acknowledges that the Software Owner may have sensitive or
+                                    proprietary information served
+                                    on the computers or in the software being maintained. Therefore, the Service
+                                    Provider agrees to treat any
+                                    information served in such systems as confidential, and shall take every possible
+                                    measure to ensure that such
+                                    information is not deleted, modified, or distributed without the Software Owner’s
+                                    consent.
+                                </p>
+                                <br/>
+                                <strong>Modifications</strong>
+                                <br/>
+                                <p>The Software Provider may, with the Software Owner’s consent, perform periodic
+                                    updates or additional needed
+                                    modifications to the software being maintained.If any extra requirements are asked
+                                    by the client which is not in
+                                    the scope of functionality of the current software, it will be billed extra
+                                    depending upon the nature of work
+                                </p>
+                                <br/>
+                                <strong>Payment Details</strong>
+                                <br/>
+                                <p>In consideration of the tasks being performed during the term of this software
+                                    maintenance agreement, the
+                                    Software Owner has agreed to pay the Service Provider all sums listed in the table
+                                    below. Any additional costs
+                                    should be submitted in writing to the Software Owner prior to agreeing to said
+                                    costs. The Software Owner may,
+                                    at their discretion, ask for a report of costs as well as price matching for any
+                                    materials needed for this software maintenance agreement. Any travel expenses should
+                                    be submitted in writing to the Software Owner and are
+                                    subject to their approval. If at any time payment is not received for any terms not
+                                    agreed on between the parties
+                                    it shall constitute a breach of contract and will be grounds for termination of this
+                                    software maintenance
+                                    agreement.
+                                    This Agreement sets forth the entire understanding of the parties and supersedes all
+                                    prior negotiations and
+                                    understandings between them. This Agreement may not be amended or modified except in
+                                    writing executed by
+                                    both parties. This Agreement shall be binding upon and inure to the benefit of the
+                                    parties hereto and their
+                                    respective heirs, executors, administrators, successors, and assigns.
+                                </p>
+                                <br/>
+                                <br/>
+                                <h6>Cost:</h6>
+                                <br/>
+                            </div>
+                        </div>
+                        <style>
+                            table,th,td {
+                            padding: 5px;
+                            }
+                        </style>
+                        <table align="center" style="width:100%;" border="1px solid black"
+                               cellspacing="0" cellpadding="5">
+                            <thead>
+                                <tr>
+                                    <th style="border:1px solid black;" colspan="4">
+                                        <strong>Project name:</strong>
+                                    </th>
+                                    <th style="border:1px solid black;" colspan="4">
+                                        <strong>Cost:</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="4">
+                                        <span t-field="o.project"/>
+                                    </td>
+                                    <td colspan="4">
+                                        <span t-field="o.cost"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                </template>
+            </body>
+        </t>
+    </template>
+</odoo>

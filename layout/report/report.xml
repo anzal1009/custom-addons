@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <template id="template_invoice_layout_table_inherited"-->
+<!--              inherit_id="account.report_invoice_document">-->
+
+<!--        <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="attribute">-->
+<!--            <attribute name="style">border-top:1px solid white;</attribute>-->
+
+<!--        </xpath>-->
+<!--    </template>-->
+
+
+  <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+    <xpath expr="//table[@name='invoice_line_table']/thead/tr/th" position="attributes">
+      <attribute name="style"> border: none;</attribute>
+    </xpath>
+
+<!--      <xpath expr="//tbody[hasclass('invoice_tbody')]" position="attributes">-->
+<!--  <attribute name="style">border-collapse: collapse; border: none;</attribute>-->
+<!--</xpath>-->
+
+  </template>
+
+
+    <template id="template_external_layout_header_inherited"
+              inherit_id="web.external_layout_boxed">
+
+        <xpath expr="//div[@class='col-6']"
+               position="replace">
+                    <div class="col-6 row-3">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 25px;" alt="Logo"/>
+                    </div>
+
+
+<!--            <div class="col-6 mb4">-->
+
+<!--&lt;!&ndash;            <div class="col-6 text-center">&ndash;&gt;-->
+<!--                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="vertical-align:middle; max-height: 20px;margin-top:30px"/>-->
+<!--&lt;!&ndash;                <table style="1000px">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td align="center">&ndash;&gt;-->
+<!--&lt;!&ndash;                             <img t-if="res_company.logo"&ndash;&gt;-->
+<!--&lt;!&ndash;                     t-att-src="'data:image/jpg;base64,%s' % to_text(res_company.logo)"&ndash;&gt;-->
+<!--&lt;!&ndash;                     style="vertical-align:middle; max-height: 20px;margin-top:30px"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        </td>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                </table>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            </div>-->
+
+
+        </xpath>
+
+
+
+        <xpath expr="//div[@ t-field='company.report_footer']"
+               position="replace">
+            <br></br>
+
+            <table class="" width="100%" cellpadding="5" cellspacing="5"
+                   style="margin-top: 0%; border-collapse: collapse; border: 1px solid black;">
+
+                <tr>
+                    <td style="border-top:1px solid black;" colspan="3">
+                        <u>Declaration</u>
+                        <br></br>We declare that this invoice shows the actual price of<br></br>the
+                        goods
+                        described and that
+                        all particulars
+                        are true<br></br> and correct
+                    </td>
+                    <td colspan="6"
+                        style="text-align:right;padding-left:100px; border-top:1px solid black; border-right:1px solid black;">
+                        for
+                        <b>Ideenkreise Tech Pvt.Ltd</b>
+                        <br></br>
+                        <br></br>Authorised Signature
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%">
+                <tr>
+
+                    <td align="center" colspan="9">This is a Computer Generated Document</td>
+
+                </tr>
+            </table>
+
+
+        </xpath>
+
+    </template>
+
+
+</odoo>

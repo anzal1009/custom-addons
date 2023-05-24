@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_amc_tree" model="ir.ui.view">
+        <field name="name">amc.details.tree</field>
+        <field name="model">amc.details</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="client_name"/>
+                <field name="project"/>
+                <field name="starting_date"/>
+                <field name="ending_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_amc_form" model="ir.ui.view">
+        <field name="name">amc.details.form</field>
+        <field name="model">amc.details</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="AMC Details">
+                <sheet>
+                    <group>
+                        <group col="2">
+                            <field name="client_name" widget="res_partner_many2one" context="{'show_address': 1}"
+                                   options='{"always_reload": True}'/>
+                            <field name="project"/>
+                            <field name="payment"/>
+
+                            <label for="street" string="Address"/>
+
+                             <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                     <field name="city" placeholder="City" class="o_address_city" />
+                                    <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+
+
+                                    <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                                </div>
+
+                        </group>
+                        <group>
+                            <field name="starting_date"/>
+                            <field name="ending_date"/>
+                            <field name="modifications"/>
+                            <field name="payment_terms"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Invoice Details" name="details">
+                            <field name="amc_line_ids">
+                                <tree editable="bottom">
+                                    <field name="date" force_save="1"/>
+                                    <field name="bill" force_save="1"/>
+                                    <field name="amount" force_save="1"/>
+                                    <field name="client_name" invisible="1"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="date" force_save="1"/>
+                                        <field name="bill" force_save="1"/>
+                                        <field name="amount" force_save="1"/>
+                                        <field name="client_name" invisible="1"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="total">
+                        <field name="total" colspan="2"/>
+                    </group>
+                    <div class="oe_clear"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_view_amc">
+        <field name="name">AMC Details</field>
+        <field name="res_model">amc.details</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create AMC Details</p>
+        </field>
+    </record>
+
+</odoo>

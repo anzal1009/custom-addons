@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="accounts_warehouse_invoice">
+        <t t-call="web.html_container">
+
+            <table align="center" style="width:100%;" cellpadding="10">
+
+                <div class="header">
+                    <t t-foreach="docs" t-as="o">
+
+                        <tr>
+                            <td style="border-bottom:1px sold black; margin-top:40px;">
+<!--                                                        <div class="col-xs-6">-->
+                                <img t-if="res_company.logo"
+                                     t-att-src="'data:image/jpg;base64,%s' % to_text(res_company.logo)"
+                                     style="max-height: 120px;margin-top:50px; border-bottom:1px sold white;"/>
+<!--                                                </div>-->
+
+                            </td>
+                            <td>
+                                <div name="company_address" class="float-right mb4" style="font-size: 15px;">
+<!--                                    <strong>-->
+                                        <p>Ideenkreise Tech Pvt Ltd
+                                            <br/>
+                                            SNDP Junction, XXI/370A,
+                                            <br/>
+                                            Vettukattil Hospital Building
+                                            <br/>
+                                            Muvattupuzha, Kerala 686661
+                                            <br/>
+                                            +919544436769
+                                            <br/>
+                                            info@ideenkreisetech.com
+                                            <br/>
+                                            GSTIN:
+                                            <span style="font-family:'Century';">32AAFCI0779LIZD</span>
+                                            <br/>
+                                            CIN: U72900KL2018PTC055667
+                                        </p>
+<!--                                    </strong>-->
+                                </div>
+                            </td>
+
+                            <!--                            <td style="border-bottom:1px sold black;">-->
+                            <!--                                <div name="company_address" class="float-right mb4">-->
+                            <!--                                    <div t-field="o.company_id"-->
+                            <!--                                         t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>-->
+                            <!--                                </div>-->
+                            <!--                            </td>-->
+
+
+                        </tr>
+                    </t>
+                </div>
+
+
+            </table>
+
+            <div class="footer">
+                <table class="" width="100%" cellpadding="5" cellspacing="5"
+                       style="margin-top: 0%; border-collapse: collapse; border: 1px solid black;">
+
+                    <tr>
+                        <td style="border-top:1px solid black; padding-left:5px;" colspan="3">
+                            <u>Declaration</u>
+
+                            <br/>
+                            <br/>
+                            We declare that this invoice shows the actual price of the
+                            goods<br/>
+                            described and that all particulars are true and correct
+                        </td>
+                        <td colspan="6"
+                            style="text-align:left; border-top:1px solid black;
+                            border-left:1px solid black; border-right:1px solid black; padding-left:5px;">
+                            Authorised Signature
+                            <br/>
+
+                            <span t-if="o.sign == True">
+                                <img src="accounting_inherit/static/image/sign.png" width="100px" height="70px"/>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <template id="accounts_warehouse_invoice">
+                <!--    <t t-call="web.html_container">-->
+                <!--                <t t-call="web.external_layout">-->
+                <t t-call="account.report_invoice_with_payments">
+
+
+                </t>
+                <!--                </t>-->
+            </template>
+
+
+        </t>
+    </template>
+</odoo>

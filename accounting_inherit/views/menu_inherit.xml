@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_amc_details"
+              name="AMC Details"
+              parent="account.menu_finance_configuration"
+              sequence="-1"
+              action="action_view_amc"/>
+
+
+    <record id="field_inherit" model="ir.ui.view">
+        <field name="name">account move field Inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='source_id']" position="after">
+                    <field name="sign"></field>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</odoo>

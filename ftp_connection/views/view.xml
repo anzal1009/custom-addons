@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+
+        <record id="new_ftp_button_inherit" model="ir.ui.view">
+            <field name="name">account.move.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='action_register_payment']" position="before">
+                    <button name="action_ftp_connection" string="IRN" type="object" class="oe_highlight"
+                            attrs="{'invisible':['|',('move_type','not in',('out_invoice','out_refund','in_refund')),('state','not in','posted')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

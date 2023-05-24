@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_templates_tree" model="ir.ui.view">
+        <field name="name">templates.tree</field>
+        <field name="model">templates</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="template_name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_templates_form" model="ir.ui.view">
+        <field name="name">templates.form</field>
+        <field name="model">templates</field>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <form string="Templates">
+                <sheet>
+                    <group>
+                        <group col="2">
+                            <field name="date"/>
+                            <field name="company"/>
+                            <field name="template_name"/>
+                            <field name="client_name" widget="res_partner_many2one" context="{'show_address': 1}"
+                                   options='{"always_reload": True}' attrs="{'invisible': [('template_name','!=','proposal')]}"/>
+                            <field name="client" widget="res_partner_many2one" context="{'show_address': 1}"
+                                   options='{"always_reload": True}' attrs="{'invisible': [('template_name','!=','cover')]}"/>
+                            <field name="name" attrs="{'invisible': [('template_name','!=','experience')]}"/>
+                            <field name="rec_name" attrs="{'invisible': [('template_name','!=','offer')]}"/>
+                            <field name="starting_date" attrs="{'invisible': [('template_name','!=','proposal')]}"/>
+                            <field name="start_date" attrs="{'invisible': [('template_name','!=','experience')]}"/>
+                            <field name="employ_date" attrs="{'invisible': [('template_name','!=','offer')]}"/>
+                            <field name="ending_date" attrs="{'invisible': [('template_name','!=','proposal')]}"/>
+                            <field name="end_date" attrs="{'invisible': [('template_name','!=','experience')]}"/>
+                            <field name="project" attrs="{'invisible': [('template_name','!=','proposal')]}"/>
+                            <field name="cost" attrs="{'invisible': [('template_name','!=','proposal')]}"/>
+                            <field name="designation" attrs="{'invisible': [('template_name','!=','experience')]}"/>
+                            <field name="salary" attrs="{'invisible': [('template_name','!=','offer')]}"/>
+                            <field name="product" attrs="{'invisible': [('template_name','!=','cover')]}"/>
+                            <field name="post" attrs="{'invisible': [('template_name','!=','offer')]}"/>
+                            <field name="address" attrs="{'invisible': [('template_name','!=','offer')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_view_templates">
+        <field name="name">Templates</field>
+        <field name="res_model">templates</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create new Templates</p>
+        </field>
+    </record>
+
+
+      <menuitem id="menu_templates"
+              name="Templates"
+              parent="account.menu_finance_configuration"
+              sequence="-2"
+              action="action_view_templates"/>
+
+
+
+
+</odoo>

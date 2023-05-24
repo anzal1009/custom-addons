@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<odoo>
+    <template id="experience_report">
+        <t t-call="web.html_container">
+            <body>
+                <template id="experience_report"
+                          inherit_id="web.external_layout_standard">
+                    <xpath expr="//div[@class='header']" position="replace">
+                        <t t-foreach="docs" t-as="o">
+                        </t>
+                    </xpath>
+                    <xpath expr="//div[@class='row zero_min_height']" position="replace">
+                        <div t-if="report_type == 'pdf'" class="text-muted" style="text-align: right;">
+                            Page:
+                            <span class="page"/>
+                            /
+                            <span class="topage"/>
+                        </div>
+                    </xpath>
+                    <xpath expr="//div[@name='name']" position="replace">
+                        <div class="header">
+                            <div class="col-xs-6">
+                                <img src='/accounting_inherit/static/image/header.png' style="width:100%;"/>
+                            </div>
+
+                        </div>
+                    </xpath>
+                    <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']/div[1]//ul[@class='list-inline mb4']"
+                           position="replace">
+                        <div class="footer">
+                            <img src='/accounting_inherit/static/image/footer.png' style="width:100%;"/>
+                        </div>
+                    </xpath>
+                    <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']/div[1]//div[@class='text-muted']"
+                           position="replace">
+                    </xpath>
+                </template>
+
+                <template id="experience_report">
+                    <t t-call="web.external_layout">
+                        <p>Date:
+                            <span t-field="o.date"/>
+                        </p>
+                        <br/>
+                        <center>
+                            <u>
+                                <strong>
+                                    <h3>TO WHOMSOEVER IT MAY CONCERN</h3>
+                                </strong>
+                            </u>
+                        </center>
+                        <br/>
+                        <div class="page" style="font-size: 15px !important;">
+                            <div class="line" style="text-align: justify;text-justify: inter-word;">
+                                <p>This is to certify that <strong>Mr/Miss <span t-field="o.name"/>
+                                    </strong> was working at IDEENKREISE TECH PVT LTD as a "<span t-field="o.designation"/>" from <span t-field="o.start_date"/> to <span t-field="o.end_date"/>.
+                                </p>
+                                <br/>
+                                <p>During this tenure, his/her services were found to be good in carrying out his job
+                                    duties. His/Her technical expertise and resource management skills helped our
+                                    company. We hope that he achieves all his career goals and succeeds in all his
+                                    ventures.
+                                </p>
+                                <br/>
+                                <br/>
+                                <div class="image">
+                                    <img src='/accounting_inherit/static/image/watermark.png' style="width:100%;"/>
+                                </div>
+                                <br/>
+                                <strong>For Ideenkreise Tech Pvt. Ltd</strong>
+                                <br/>
+                                <div class="image">
+                                    <img src='/accounting_inherit/static/image/seal.png' style="width:20%;"/>
+                                </div>
+                                <br/>
+                                <strong>Sajith K</strong>
+                                <br/>
+                                <p>
+                                    <italic>Chief Technical Officer</italic>
+                                </p>
+                                <br/>
+                                <p>Email: info@ideenkreisetech.com</p>
+                            </div>
+                        </div>
+                    </t>
+                </template>
+            </body>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_amc_details,access.amc.details,model_amc_details,,1,1,1,1
+access_dashboard,access.dashboard,model_dashboard,,1,1,1,1
+access_amc_details_lines,access.amc.details.lines,model_amc_details_lines,,1,1,1,1
+access_templates,access.templates,model_templates,,1,1,1,1
